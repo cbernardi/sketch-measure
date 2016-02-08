@@ -154,7 +154,7 @@ com.utom.extend({
         return Math.round( 255 * number );
     },
     updateLength: function(length, sp){
-        var unit = (this.configs.resolution > 0)? "rem": "rem";
+        var unit = (this.configs.resolution > 0)? "pt": "px";
         unit = (this.configs.resolution > 3)? "dp": unit;
         var scale = this.allResolution[this.configs.resolution].scale;
 
@@ -166,6 +166,10 @@ com.utom.extend({
 
         if (scale === 27) {
           unit = "gu";
+        }
+
+        if(this.configs.resolution = 1.0) {
+        	unit = "rem"
         }
 
         return length + unit;
@@ -339,6 +343,10 @@ com.utom.extend({
 // Settings
 com.utom.extend({
     allResolution: [
+    	{
+    		name: "Web (rem)",
+    		scale: 1.0
+    	},
         {
             name: "Standard @1x (px)",
             scale: 1

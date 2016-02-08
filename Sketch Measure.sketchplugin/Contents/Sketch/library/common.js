@@ -154,7 +154,7 @@ com.utom.extend({
         return Math.round( 255 * number );
     },
     updateLength: function(length, sp){
-        var unit = (this.configs.resolution > 0)? "pt": "px";
+        var unit = (this.configs.resolution > 0)? "rem": "rem";
         unit = (this.configs.resolution > 3)? "dp": unit;
         var scale = this.allResolution[this.configs.resolution].scale;
 

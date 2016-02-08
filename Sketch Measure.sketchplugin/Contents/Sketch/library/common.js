@@ -145,9 +145,11 @@ com.utom = {
 };
 
 
+
 //Math
 com.utom.extend({
-    mathHalf: function(number){
+
+	mathHalf: function(number){
         return Math.round( number / 2 );
     },
     math255: function(number){
@@ -168,8 +170,9 @@ com.utom.extend({
           unit = "gu";
         }
 
-        if(this.configs.resolution = 1.0) {
-        	unit = "rem"
+        if(scale === 5) {
+        	unit = "rem";
+        	length = (length * scale / 16).toFixed(2);
         }
 
         return length + unit;
@@ -345,7 +348,7 @@ com.utom.extend({
     allResolution: [
     	{
     		name: "Web (rem)",
-    		scale: 1.0
+    		scale: 5
     	},
         {
             name: "Standard @1x (px)",
@@ -499,7 +502,7 @@ com.utom.extend({
         end.setName("end");
         endFrame.setWidth(1);
         endFrame.setHeight(5);
-        endFrame.setX( frame.x + frame.width - 1 );
+        endFrame.setX( frame.x + frame.width - 1);
 
         var text = textL.duplicate();
         text.setStringValue(this.updateLength(frame.width));
